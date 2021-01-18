@@ -15,15 +15,15 @@ app.get("/", function(req, res){
 });
 
 mailchimp.setConfig({
-    apiKey : "392f5f2252f22548011c7af9ddc13c48-us7",
-    server : "us7"
+    apiKey : process.env.API_KEY ,
+    server : process.env.SERVER
 });
 
 app.post("/", function(req, res){
     const fname= req.body.fname;
     const lname= req.body.lname;
     const email = req.body.email;
-    const listId = "b72c780998";
+    const listId = process.env.LISTID;
 
     const userData = {
         fname : fname,
